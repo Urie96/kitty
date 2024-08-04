@@ -127,13 +127,13 @@ jobs:
               run: make FAIL_WARN=1 html
 
             - name: Build static kittens
-              run: python setup.py build-static-binaries
+              run: python setup.py build-static-binaries --dir-for-static-binaries build/static
 
             - name: Archive
               uses: actions/upload-artifact@v4
               with:
                   name: artifact-kitten
-                  path: kitty/launcher
+                  path: build/static
 
     # bundle:
     #     name: Bundle test (${{ matrix.os }})

@@ -1226,13 +1226,10 @@ def build_static_kittens(
 
 
 def build_static_binaries(args: Options, launcher_dir: str) -> None:
-    arches = 'amd64', 'arm64'
-    for os_, arches_ in {
-        'linux': arches, 'android': arches,
-    }.items():
-        for arch in arches_:
-            print('Cross compiling static kitten for:', os_, arch)
-            build_static_kittens(args, launcher_dir, args.dir_for_static_binaries, for_platform=(os_, arch))
+    os_ = "android"
+    arch = "arm64"
+    print('Cross compiling static kitten for:', os_, arch)
+    build_static_kittens(args, launcher_dir, args.dir_for_static_binaries, for_platform=(os_, arch))
 
 
 @lru_cache(2)
